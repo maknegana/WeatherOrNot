@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161128120612) do
+ActiveRecord::Schema.define(version: 20161128222935) do
 
   create_table "day_weathers", force: :cascade do |t|
     t.integer  "date"
@@ -77,6 +77,9 @@ ActiveRecord::Schema.define(version: 20161128120612) do
     t.integer  "neck"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
+
+  add_index "what_to_brings", ["user_id"], name: "index_what_to_brings_on_user_id"
 
 end
