@@ -1,28 +1,25 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+*Create Models
 
-Things you may want to cover:
+rails g model FeedbackForm feel:integer top:integer bottom:integer shoes:integer hands:integer head:integer eyes:integer ears:integer neck:integer
 
-* Ruby version
+rails g model WhatToBring weather:string top:integer bottom:integer shoes:integer hands:integer head:integer eyes:integer ears:integer neck:integer
 
-* System dependencies
+rails g model DayWeather date:integer temp:integer sky:string precipitation:integer wind:integer humidity:integer location:string
 
-* Configuration
 
-* Database creation
+*Add References
 
-* Database initialization
+rails g migration AddDayWeatherRefToFeedbackForms day_weather:references
 
-* How to run the test suite
+rails g migration AddWhatToBringRefToFeedbackForms what_to_bring:references
 
-* Services (job queues, cache servers, search engines, etc.)
+rails g migration AddUserToFeedbackForms user:references
 
-* Deployment instructions
+<DONT EXECUTE>rails g migration add_bring_to_what_to_brings bring:integer   //for some reason this isn’t working
 
-* ...
-
+rails g migration add_name_to_users name:string
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
