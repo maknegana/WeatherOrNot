@@ -1,0 +1,2 @@
+module DayWeathersHelper
+end
