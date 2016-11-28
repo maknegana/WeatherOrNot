@@ -1,0 +1,148 @@
+/*attempting to define my own fonts what*/
+@font-face {
+  font-family: bigJohn;
+  src: url(big_john.otf);
+}
+
+@font-face {
+  font-family: slimJoe;
+  src: url(slim_joe.otf)
+}
+
+
+
+div {
+  font-family: slimJoe;
+}
+body {
+
+  width: 100%;
+
+}
+
+
+
+#center {
+  /*position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);*/
+  /*position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline;*/
+
+
+
+}
+
+.stats {
+
+
+  text-align: center;
+  background-color: #3F4052;
+  color: white;
+  /*width: 240px;*/
+  width: 30%;
+  height: 100vh;
+  padding: 80px;
+
+  float:left;
+
+}
+
+.suggestions {
+
+  float: left;
+  /*width: 440px;*/
+  width: 45%;
+  background-color: #D3E5EA;
+  height: 100vh;
+  padding: 80px;
+}
+
+.box {
+  position: relative;
+  display: inline-block;
+  width: 120px;
+  height: 120px;
+  background-color: rgba(255, 255, 255, 0.3);
+  margin: 15px 15px 0px 0px;
+  border-radius: 5%;
+  overflow:hidden;
+
+}
+
+img {
+  width: 70px;
+  margin-left: -35px;
+  left: 50%;
+  position:absolute;
+  /*margin: 0 auto;
+  margin-top: 25px;
+  margin-left: 20px;*/
+  margin-top: 20px;
+}
+
+.text_box {
+  position: absolute;
+  margin-top: 0px;
+  width: 120px;
+  height: 120px;
+  padding-top: 35px;
+  background-color: rgba(255, 255, 255, 0.95);
+  margin: 15px 15px 0px 0px;
+  border-radius: 5%;
+  font-family: bigJohn;
+  color: #3F4052;
+  text-align: center;
+  display: none;
+}
+
+.box:hover .text_box {
+  display: block;
+  background-color: white;
+}
+
+.box:hover {
+  background-color: white;
+}
+
+#more:hover #hidden {
+  display: block;
+}
+
+#more {
+  margin-bottom: 100px;
+}
+
+#hidden {
+  display:none;
+  font-family: Raleway;
+  padding: 20px;
+}
+
+#hidden:hover {
+  display: block;
+}
+
+
+ul {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+ul li {display: block;}
+ul li:hover {background: #555;}
+ul li:hover ul {display: block;}
+ul li ul {
+    position: absolute;
+    width: 200px;
+    display: none;
+}
+ul li ul li {
+    background: #555;
+    display: block;
+}
+ul li ul li a {display:block !important;}
+ul li ul li:hover {background: #666;}

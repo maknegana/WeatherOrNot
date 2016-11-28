@@ -1,1 +1,83 @@
-Welcome
+<head>
+  <link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400">
+  <script src="/assets/javascripts/index.js"></script>
+</head>
+
+  <h1><%= @current_weather %></h1>
+
+  <div id="weather"></div>
+
+    <div class="stats">
+      <div class="weather_icon">
+      </div>
+      <div class="skies"> <p style="font-family:bigJohn;font-size:21px">
+                              <%= @cdw.sky %></p> </div>
+      <div class="location"> <p> <%= @cdw.location %> </p> </div>
+      <div class="temp" style="font-size: 100px; font-family:slimJoe;font-weight:200">
+        <%= @cdw.temp %>°
+      </div>
+      <div id="more" style="font-family:Raleway;font-weight:100"> <p> Show more </p>
+
+      <div id="hidden">
+          <p> Chance of Rain </p>
+          <p> <%= @cdw.precipitation %> % </p>
+          <p> Wind Speed </p>
+          <p> <%= @cdw.wind %> mph</p>
+          <p> Humidity </p>
+          <p> <%= @cdw.humidity %> % </p>
+      </div>
+      </div>
+    </div>
+
+
+    <div class="suggestions">
+      <p style="font-family:bigJohn;color:#3F4052;font-size:21px"> weather to wear </p>
+      <div class="grid">
+        <% if @rel_wtb %>
+          <div class="box" id="top">
+            <img src="<% @tops[@rel_wtb.top] %> + .png">
+            <div class="text_box"> <%= @tops[@rel_wtb.top] %> </div>
+          </div>
+          <div class="box" id="bottom">
+            <img src="<%@bottoms[@rel_wtb.bottom]%> + .png">
+            <div class="text_box"> <%= @bottoms[@rel_wtb.bottom]%> </div>
+          </div>
+          <div class="box" id="shoes">
+            <img src="<%@shoes[rel_wtb.shoe]%> + .png">
+            <div class="text_box"> <%= @shoes[@rel_wtb.shoes]%> </div>
+          </div>
+          <div class="box" id="hands">
+            <img src="<%@hands[@rel_wtb.hands]%> + .png">
+            <div class="text_box"> <%= @hands[@rel_wtb.hands]%> </div>
+          </div>
+          <div class="box" id="head">
+            <img src="<%@heads[@rel_wtb.head]%> + .png">
+            <div class="text_box"> <%= @heads[@rel_wtb.head]%> </div>
+          </div>
+          <div class="box" id="eyes">
+            <img src="<%@eyes[@rel_wtb.eyes]%> + .png">
+            <div class="text_box"> <%= @eyes[@rel_wtb.eyes]%> </div>
+          </div>
+          <div class="box" id="ears">
+            <img src="<%@ears[@rel_wtb.ears]%> + .png">
+            <div class="text_box"> <%= @ears[@rel_wtb.ears]%> </div>
+          </div>
+          <div class="box" id="neck">
+            <img src="<%@necks[@rel_wtb.neck]%> + .png">
+            <div class="text_box"> <%= @necks[@rel_wtb.neck]%> </div>
+          </div>
+          <div class="box" id="bring">
+            <img src="<%@brings[@rel_wtb.bring]%> + .png">
+            <div class="text_box"> <%= @brings[@rel_wtb.bring]%> </div>
+          </div>
+
+        <% end %>
+ 
+        <div class="box"> <div class="text_box"> Boots </div> </div>
+        <div class="box"> <div class="text_box"> Jeans </div> </div>
+        <div class="box"> <div class="text_box"> Sweater </div> </div>
+        <div class="box"> <div class="text_box"> Gloves </div> </div>
+        <div class="box"> <div class="text_box"> Parka </div> </div>
+      </div>
+    </div>
