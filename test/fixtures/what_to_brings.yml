@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  weather: MyString
+  top: 1
+  bottom: 1
+  shoes: 1
+  hands: 1
+  head: 1
+  eyes: 1
+  ears: 1
+  neck: 1
+
+two:
+  weather: MyString
+  top: 1
+  bottom: 1
+  shoes: 1
+  hands: 1
+  head: 1
+  eyes: 1
+  ears: 1
+  neck: 1
