@@ -35,46 +35,60 @@
       <p style="font-family:bigJohn;color:#3F4052;font-size:21px"> weather to wear </p>
       <div class="grid">
         <% if @rel_wtb %>
-          <% if !(@rel_wtb.top.eql? "none") %>
+          <% if !@tops[@rel_wtb.top].empty? %>
             <div class="box">
               <img src="<% @tops[@rel_wtb.top] %> + .png">
               <div class="text_box"> <%= @tops[@rel_wtb.top] %> </div>
             </div>
           <% end %>
+          <% if !@bottoms[@rel_wtb.bottom].empty? %>
           <div class="box" id="bottom">
             <img src="<%@bottoms[@rel_wtb.bottom]%> + .png">
             <div class="text_box"> <%= @bottoms[@rel_wtb.bottom]%> </div>
           </div>
+          <% end %>
+          <% if !@shoes[@rel_wtb.shoes].empty? %>
           <div class="box" id="shoes">
             <img src="<%@shoes[@rel_wtb.shoes]%> + .png">
             <div class="text_box"> <%= @shoes[@rel_wtb.shoes]%> </div>
           </div>
+          <% end %>
+          <% if !@hands[@rel_wtb.hands].empty? %>
           <div class="box" id="hands">
             <img src="<%@hands[@rel_wtb.hands]%> + .png">
             <div class="text_box"> <%= @hands[@rel_wtb.hands]%> </div>
           </div>
+          <% end %>
+          <% if !@heads[@rel_wtb.head].empty? %>
           <div class="box" id="head">
             <img src="<%@heads[@rel_wtb.head]%> + .png">
             <div class="text_box"> <%= @heads[@rel_wtb.head]%> </div>
           </div>
+          <% end %>
+          <% if !@eyes[@rel_wtb.eyes].empty? %>
           <div class="box" class="<%="hide" if (@rel_wtb.top.eql? "none")%>">
             <img src="<%@eyes[@rel_wtb.eyes]%> + .png">
             <div class="text_box"> <%= @eyes[@rel_wtb.eyes]%> </div>
           </div>
+          <% end %>
+          <% if !@ears[@rel_wtb.ears].empty? %>
           <div class="box" id="ears">
             <img src="<%@ears[@rel_wtb.ears]%> + .png">
             <div class="text_box"> <%= @ears[@rel_wtb.ears]%> </div>
           </div>
-          <% if !(@rel_wtb.top.eql? "none") %>
+          <% end %>
+          <% if !@necks[@rel_wtb.neck].empty? %>
             <div class="box" id="neck">
               <img src="<%@necks[@rel_wtb.neck]%> + .png">
               <div class="text_box"> <%= @necks[@rel_wtb.neck]%> </div>
             </div>
           <% end %>
-          <div class="box" id="bring">
-            <img src="<%@brings[@rel_wtb.bring]%> + .png">
-            <div class="text_box"> <%= @brings[@rel_wtb.bring]%> </div>
-          </div>
+          <% if !@brings[@rel_wtb.bring].empty? %>
+            <div class="box" id="bring">
+              <img src="<%@brings[@rel_wtb.bring]%> + .png">
+              <div class="text_box"> <%= @brings[@rel_wtb.bring]%> </div>
+            </div>
+          <% end %>
 
         <% else %>
 
