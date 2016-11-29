@@ -2,7 +2,7 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
   def create	
     super
     if resource.save
-	    @sunnyWTB = WhatToBring.create(:weather => "Sunny",
+	    @sunnyWTB = WhatToBring.create(:weather => "sunny",
 	                           :top => 0,
 	                           :bottom => 0,
 	                           :shoes => 0,
@@ -16,7 +16,7 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
 	                           ) 
 	    current_user.what_to_brings << @sunnyWTB
 	    
-	    @cloudyWTB = WhatToBring.create(:weather => "Cloudy",
+	    @cloudyWTB = WhatToBring.create(:weather => "cloudy",
                               :top => 1,
                               :bottom => 1,
                               :shoes => 1,
@@ -30,7 +30,7 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
                               )
       current_user.what_to_brings << @cloudyWTB
       
-      @drizzleWTB = WhatToBring.create(:weather => "Drizzle",
+      @drizzleWTB = WhatToBring.create(:weather => "drizzle",
                               :top => 2,
                               :bottom => 2,
                               :shoes => 2,
@@ -44,7 +44,7 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
                               )   
       current_user.what_to_brings << @drizzleWTB
       
-      @heavyRainWTB = WhatToBring.create(:weather => "Heavy Rain",
+      @heavyRainWTB = WhatToBring.create(:weather => "heavy rain",
                               :top => 3,
                               :bottom => 3,
                               :shoes => 3,
@@ -57,7 +57,7 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
                               :bring => 3,
                               )
       current_user.what_to_brings << @heavyRainWTB
-      @snowWTB = WhatToBring.create(:weather => "Snow",
+      @snowWTB = WhatToBring.create(:weather => "snow",
                               :top => 4,
                               :bottom => 4,
                               :shoes => 4,
