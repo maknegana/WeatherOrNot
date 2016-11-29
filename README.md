@@ -14,8 +14,10 @@ Attributes:
   - implements devise (user authentication) 
 
 Associations:
+
   - has many FeedbackForms
   - has many WhatToBrings
+
 ### DayWeather
 
 Attributes:
@@ -23,7 +25,9 @@ Attributes:
   - date, temperature, sky, precipitation, wind, humidity, location
 
 Associations:
+
   - Has many FeedbackForms
+
 ### FeedbackForm
 
 Attributes:
@@ -32,9 +36,11 @@ Attributes:
   - Top, bottom, shoes, hands, head, eyes, ears, neck
 
 Associations:
+
   - Has many WhatToBrings
   - Has many DayWeathers
   - Belongs to User
+
 ### WhatToBring
 
 Attributes:
@@ -43,13 +49,17 @@ Attributes:
   - Top, bottom, shoes, hands, head, eyes, ears, neck
 
 Associations:
+
   - Belongs to User
+
 ## Features:
+
   - Users can sign up/log in/log out/cancel account 
   - Visual UI
   - Users can get personalized suggestions on what to bring/wear based on the  weather and their previous feedbacks
  
 ## Division of Labor:
+
   - Anne Lin
   - Adriana Babakanian
   - Michelle Han
