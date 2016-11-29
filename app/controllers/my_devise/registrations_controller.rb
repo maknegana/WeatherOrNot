@@ -64,10 +64,11 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
                               :neck => 4,
                               :top => 4,
                               )
-      current_user.what_to_brings << @snowWTB                                                                                                                     
+      current_user.what_to_brings << @snowWTB 
+    end                                                                                                                      
   end
 
-  
+
   def destroy
 	  super
 	  if resource.destroy
@@ -77,4 +78,7 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
 	    end
 	  end  
   end	
+
+
+
 end
