@@ -8,34 +8,34 @@
 
 ### User
 
-Attributes:
+* Attributes:
 
   - name
   - implements devise (user authentication) 
 
-Associations:
+* Associations:
 
   - has many FeedbackForms
   - has many WhatToBrings
 
 ### DayWeather
 
-Attributes:
+* Attributes:
 
   - date, temperature, sky, precipitation, wind, humidity, location
 
-Associations:
+* Associations:
 
   - Has many FeedbackForms
 
 ### FeedbackForm
 
-Attributes:
+* Attributes:
 
   - feel: User rates what the weather felt like ranging from 0 (hot) - 4 (cold)
   - Top, bottom, shoes, hands, head, eyes, ears, neck
 
-Associations:
+* Associations:
 
   - Has many WhatToBrings
   - Has many DayWeathers
@@ -43,12 +43,12 @@ Associations:
 
 ### WhatToBring
 
-Attributes:
+* Attributes:
 
   - Weather: ranging from “sunny” - “snow”
   - Top, bottom, shoes, hands, head, eyes, ears, neck
 
-Associations:
+* Associations:
 
   - Belongs to User
 
