@@ -1,14 +1,30 @@
 class HomeController < ApplicationController
   def index
-    @most_recent_day_id = DayWeather.all.order(:id).last
-    @cdw = DayWeather.find_by_id(@most_recent_day_id)
-   
+    # @most_recent_day_id = DayWeather.all.order(:id).last
+    # @cdw = DayWeather.find_by_id(@most_recent_day_id)
+
+    offset = rand(DayWeather.count)
+    @cdw = DayWeather.offset(offset).first
+
     @weather_category = @cdw.sky
- 
-    if current_user
-      @wtbs = current_user.what_to_brings
-      @rel_wtb = @wtbs.find_by(weather: @weather_category)
-    end
+
+    # if current_user
+    @wtbs = current_user.what_to_brings
+    @rel_wtb = @wtbs.find_by(weather: @weather_category)
+    # end
+
+    # @rel_wtb = WhatToBring.create(:weather => 'cloudy',
+    #                                :top => 1,
+    #                                :bottom => 1,
+    #                                :shoes => 1,
+    #                                :hands => 1,
+    #                                :head => 1,
+    #                                :eyes => 1,
+    #                                :ears => 1,
+    #                                :neck => 1,
+    #                                :bring => 1
+    #                                )
+
 
     # Lists corresponding to the columns in the what_to_bring model. Index into
     # these lists to render the appopriate suggestion for each column that
@@ -23,4 +39,8 @@ class HomeController < ApplicationController
     @necks=["none", "none", "scarf", "scarf", "scarf"]
     @brings=["none", "none", "umbrella", "umbrella", "none"]
   end
+
+  def calendar
+  end
+
 end
