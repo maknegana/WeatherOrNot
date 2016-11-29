@@ -35,16 +35,18 @@
       <p style="font-family:bigJohn;color:#3F4052;font-size:21px"> weather to wear </p>
       <div class="grid">
         <% if @rel_wtb %>
-          <div class="box" id="top">
-            <img src="<% @tops[@rel_wtb.top] %> + .png">
-            <div class="text_box"> <%= @tops[@rel_wtb.top] %> </div>
-          </div>
+          <% if !(@rel_wtb.top.eql? "none") %>
+            <div class="box">
+              <img src="<% @tops[@rel_wtb.top] %> + .png">
+              <div class="text_box"> <%= @tops[@rel_wtb.top] %> </div>
+            </div>
+          <% end %>
           <div class="box" id="bottom">
             <img src="<%@bottoms[@rel_wtb.bottom]%> + .png">
             <div class="text_box"> <%= @bottoms[@rel_wtb.bottom]%> </div>
           </div>
           <div class="box" id="shoes">
-            <img src="<%@shoes[rel_wtb.shoe]%> + .png">
+            <img src="<%@shoes[@rel_wtb.shoes]%> + .png">
             <div class="text_box"> <%= @shoes[@rel_wtb.shoes]%> </div>
           </div>
           <div class="box" id="hands">
@@ -55,7 +57,7 @@
             <img src="<%@heads[@rel_wtb.head]%> + .png">
             <div class="text_box"> <%= @heads[@rel_wtb.head]%> </div>
           </div>
-          <div class="box" id="eyes">
+          <div class="box" class="<%="hide" if (@rel_wtb.top.eql? "none")%>">
             <img src="<%@eyes[@rel_wtb.eyes]%> + .png">
             <div class="text_box"> <%= @eyes[@rel_wtb.eyes]%> </div>
           </div>
@@ -63,21 +65,25 @@
             <img src="<%@ears[@rel_wtb.ears]%> + .png">
             <div class="text_box"> <%= @ears[@rel_wtb.ears]%> </div>
           </div>
-          <div class="box" id="neck">
-            <img src="<%@necks[@rel_wtb.neck]%> + .png">
-            <div class="text_box"> <%= @necks[@rel_wtb.neck]%> </div>
-          </div>
+          <% if !(@rel_wtb.top.eql? "none") %>
+            <div class="box" id="neck">
+              <img src="<%@necks[@rel_wtb.neck]%> + .png">
+              <div class="text_box"> <%= @necks[@rel_wtb.neck]%> </div>
+            </div>
+          <% end %>
           <div class="box" id="bring">
             <img src="<%@brings[@rel_wtb.bring]%> + .png">
             <div class="text_box"> <%= @brings[@rel_wtb.bring]%> </div>
           </div>
 
-        <% end %>
- 
+        <% else %>
+
         <div class="box"> <div class="text_box"> Boots </div> </div>
         <div class="box"> <div class="text_box"> Jeans </div> </div>
         <div class="box"> <div class="text_box"> Sweater </div> </div>
         <div class="box"> <div class="text_box"> Gloves </div> </div>
         <div class="box"> <div class="text_box"> Parka </div> </div>
+
+        <% end %>
       </div>
     </div>
