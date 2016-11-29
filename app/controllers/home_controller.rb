@@ -9,8 +9,11 @@ class HomeController < ApplicationController
     @weather_category = @cdw.sky
 
     if current_user
-      @wtbs = current_user.what_to_brings
-      @rel_wtb = @wtbs.find_by(weather: @weather_category)
+      current_user.what_to_brings.each do |w|
+        if w.weather.eql? @weather_category
+          @rel_wtb = w
+        end
+      end
     end
 
     # @rel_wtb = WhatToBring.create(:weather => 'cloudy',
