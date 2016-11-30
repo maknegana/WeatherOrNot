@@ -75,5 +75,5 @@ class WhatToBringsController < ApplicationController
     # update this what to bring depending on the feedback form submitted on a day
     # where the weather is the type of weather corresponding to this wtb.
 
-  end	
+  end
 end

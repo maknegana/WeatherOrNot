@@ -14,10 +14,11 @@
 div {
   font-family: slimJoe;
 }
+
 body {
-
   width: 100%;
-
+  background-color: #E9F4F8;
+  background-image: url("back.png");
 }
 
 
@@ -29,9 +30,8 @@ body {
   width: 40%;
   /*height: 100vh;*/
   padding: 80px;
-  padding-bottom: 100%;
-  margin-bottom: -100%;
   float:left;
+  height: 100vh;
 
 }
 
@@ -43,6 +43,7 @@ body {
   background-color: #D3E5EA;
   /*height: 100vh;*/
   padding: 80px;
+  height: 100vh;
 }
 
 .box {
@@ -54,6 +55,8 @@ body {
   margin: 15px 15px 0px 0px;
   border-radius: 5%;
   overflow:hidden;
+  white-space: nowrap;
+  text-align: center;
 
 }
 
@@ -61,15 +64,29 @@ body {
   display: none;
 }
 
-img {
+/*img {
   width: 70px;
   margin-left: -35px;
   left: 50%;
   position:absolute;
-  /*margin: 0 auto;
-  margin-top: 25px;
-  margin-left: 20px;*/
   margin-top: 20px;
+}*/
+
+img {
+  vertical-align: middle;
+}
+
+.tall {
+  height: 100%;
+  vertical-align: middle;
+}
+
+.wide {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .text_box {
@@ -87,21 +104,39 @@ img {
   display: none;
 }
 
+.image_box {
+  width: 80px;
+  height: 80px;
+  margin-top: 20px;
+  margin-left: 20px;
+  position: relative;
+}
+
+
 .box:hover .text_box {
   display: block;
   background-color: white;
+}
+
+.box:hover .image_box {
+  display:none;
 }
 
 .box:hover {
   background-color: white;
 }
 
-#more:hover #hidden {
+.text_box:hover {
   display: block;
 }
 
 #more {
   margin-bottom: 100px;
+  font-family: slimJoe;
+}
+
+#more:hover #hidden {
+  display: block;
 }
 
 #hidden {
@@ -134,3 +169,121 @@ ul li ul li {
 }
 ul li ul li a {display:block !important;}
 ul li ul li:hover {background: #666;}
+
+.titlez {
+  font-size: 40px;
+}
+
+.form-wrapper {
+  width: 100%;
+  height: auto;
+  background-color: green;
+
+}
+
+.form-inputs {
+  font-family: Raleway;
+  width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.form-actions {
+  width: 100px;
+  margin: 0 auto;
+  background-color: red;
+  margin-top: 20px;
+}
+
+.email {
+  color: #3F4052;
+  font-size: 20px;
+  width: 400px;
+  text-align: center;
+}
+
+.password {
+  color: #3F4052;
+  font-size: 20px;
+  text-align: center;
+  width: 400px;
+}
+
+#wrap {
+  width: 900px;
+  margin: 0 auto;
+}
+
+.hint {
+  font-family: Raleway;
+  font-weight: 300;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.f-button {
+  width: 100px;
+  background-color: red;
+}
+
+.rem {
+  color: red;
+}
+
+.links {
+
+}
+
+a {
+  color: #D3E5EA;
+}
+
+a:hover {
+  color: #E9F4F8;
+  background-color: #D3E5EA;
+}
+
+.top-bar {
+  background-color: #E9F4F8;
+}
+
+.name {
+  font-family: bigJohn;
+  line-height: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.name:hover {
+  background-color: #D3E5EA;
+}
+
+.name:hover a {
+  color: #E9F4F8;
+}
+
+.colored {
+  background-color: red;
+}
+
+.suncloud {
+  height: 30px;
+  width: 100px;
+  float: left;
+}
+
+.dff-button {
+  width: 300px;
+  height: 60px;
+  background-color: #E9F4F8;
+  border-color: #E9F4F8;
+  border-style: none;
+  margin-top: 15px;
+  font-family: Raleway;
+  font-size: 16px;
+  color: #3F4052;
+}
+
+.dff-button:hover {
+  background-color: white;
+}

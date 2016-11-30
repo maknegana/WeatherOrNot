@@ -12,9 +12,11 @@
   </head>
 
   <body>
-    <header>
-      <%= render 'layouts/navigation' %>
-    </header>
+    <% if current_user %>
+      <header>
+        <%= render 'layouts/navigation' %>
+      </header>
+    <% end %>
     <main role="main">
       <%= render 'layouts/messages' %>
     </main>

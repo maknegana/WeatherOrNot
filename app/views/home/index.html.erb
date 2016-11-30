@@ -35,58 +35,107 @@
       <p style="font-family:bigJohn;color:#3F4052;font-size:21px"> weather to wear </p>
       <div class="grid">
         <% if @rel_wtb %>
-          <% if !@tops[@rel_wtb.top].empty? %>
+          <% @rel_top = @tops[@rel_wtb.top] %>
+          <% @rel_bottom = @bottoms[@rel_wtb.bottom] %>
+          <% @rel_shoes = @shoes[@rel_wtb.shoes] %>
+          <% @rel_hands = @hands[@rel_wtb.hands] %>
+          <% @rel_head = @heads[@rel_wtb.head] %>
+          <% @rel_eyes = @eyes[@rel_wtb.eyes] %>
+          <% @rel_ears = @ears[@rel_wtb.ears] %>
+          <% @rel_neck = @necks[@rel_wtb.neck] %>
+          <% @rel_bring = @brings[@rel_wtb.bring] %>
+          <% if !@rel_top.empty? %>
             <div class="box">
-              <img src="<% @tops[@rel_wtb.top] %> + .png">
-              <div class="text_box"> <%= @tops[@rel_wtb.top] %> </div>
+              <div class="text_box"> <%= @rel_top %> </div>
+              <% if @rel_top.eql? "sweater" %>
+                <div class="image_box"><img src="sweater.png" class="tall"></div>
+              <% elsif @rel_top.eql? "shirt" %>
+                <div class="image_box"><img src="shirt.png" class="tall"></div>
+              <% elsif @rel_top.eql? "parka" %>
+                <div class="image_box"><img src="parka.png" class="tall"></div>
+              <% elsif @rel_top.eql? "rainjacket" %>
+                <div class="image_box"><img src="rainjacket.png" class="tall"></div>
+              <% elsif @rel_top.eql? "jacket" %>
+                <div class="image_box"><img src="jacket.png" class="tall"></div>
+              <% end %>
             </div>
           <% end %>
           <% if !@bottoms[@rel_wtb.bottom].empty? %>
           <div class="box" id="bottom">
-            <img src="<%@bottoms[@rel_wtb.bottom]%> + .png">
             <div class="text_box"> <%= @bottoms[@rel_wtb.bottom]%> </div>
+            <% if @rel_bottom.eql? "shorts" %>
+              <div class="image_box"><img src="shorts.png" class="tall"></div>
+            <% elsif @rel_bottom.eql? "jeans" %>
+              <div class="image_box"><img src="jeans.png" class="tall"></div>
+            <% end %>
           </div>
           <% end %>
           <% if !@shoes[@rel_wtb.shoes].empty? %>
           <div class="box" id="shoes">
-            <img src="<%@shoes[@rel_wtb.shoes]%> + .png">
             <div class="text_box"> <%= @shoes[@rel_wtb.shoes]%> </div>
+            <% if @rel_shoes.eql? "sandals" %>
+              <div class="image_box"><img src="sandals.png" class="tall"></div>
+            <% elsif @rel_shoes.eql? "sneakers" %>
+              <div class="image_box"><img src="sneakers.png" class="wide"></div>
+            <% elsif @rel_shoes.eql? "rainboots" %>
+              <div class="image_box"><img src="rainboots.png" class="tall"></div>
+            <% elsif @rel_shoes.eql? "snowboots" %>
+              <div class="image_box"><img src="snowboots.png" class="tall"></div>
+            <% end %>
           </div>
           <% end %>
           <% if !@hands[@rel_wtb.hands].empty? %>
           <div class="box" id="hands">
-            <img src="<%@hands[@rel_wtb.hands]%> + .png">
             <div class="text_box"> <%= @hands[@rel_wtb.hands]%> </div>
+            <% if @rel_hands.eql? "gloves" %>
+              <div class="image_box"><img src="gloves.png" class="tall"></div>
+            <% end %>
           </div>
           <% end %>
           <% if !@heads[@rel_wtb.head].empty? %>
           <div class="box" id="head">
-            <img src="<%@heads[@rel_wtb.head]%> + .png">
             <div class="text_box"> <%= @heads[@rel_wtb.head]%> </div>
+            <% if @rel_head.eql? "hat" %>
+              <div class="image_box"><img src="hat.png" class="wide"></div>
+            <% elsif @rel_head.eql? "light beanie" %>
+              <div class="image_box"><img src="lbeanie.png" class="tall"></div>
+            <% elsif @rel_head.eql? "beanie" %>
+              <div class="image_box"><img src="beanie.png" class="tall"></div>
+            <% elsif @rel_head.eql? "fleece hat" %>
+              <div class="image_box"><img src="fleece.png" class="tall"></div>
+            <% end %>
           </div>
           <% end %>
           <% if !@eyes[@rel_wtb.eyes].empty? %>
           <div class="box" class="<%="hide" if (@rel_wtb.top.eql? "none")%>">
-            <img src="<%@eyes[@rel_wtb.eyes]%> + .png">
             <div class="text_box"> <%= @eyes[@rel_wtb.eyes]%> </div>
+            <% if @rel_eyes.eql? "sunglasses" %>
+              <div class="image_box"><img src="sunglasses.png" class="wide"></div>
+            <% end %>
           </div>
           <% end %>
           <% if !@ears[@rel_wtb.ears].empty? %>
           <div class="box" id="ears">
-            <img src="<%@ears[@rel_wtb.ears]%> + .png">
             <div class="text_box"> <%= @ears[@rel_wtb.ears]%> </div>
+            <% if @rel_ears.eql? "earmuffs" %>
+              <div class="image_box"><img src="earmuffs.png"></div>
+            <% end %>
           </div>
           <% end %>
           <% if !@necks[@rel_wtb.neck].empty? %>
             <div class="box" id="neck">
-              <img src="<%@necks[@rel_wtb.neck]%> + .png">
               <div class="text_box"> <%= @necks[@rel_wtb.neck]%> </div>
+              <% if @rel_neck.eql? "scarf" %>
+                <div class="image_box"><img src="scarf.png" class="tall"></div>
+              <% end %>
             </div>
           <% end %>
           <% if !@brings[@rel_wtb.bring].empty? %>
             <div class="box" id="bring">
-              <img src="<%@brings[@rel_wtb.bring]%> + .png">
               <div class="text_box"> <%= @brings[@rel_wtb.bring]%> </div>
+              <% if @rel_bring.eql? "umbrella" %>
+                <div class="image_box"><img src="um.png" class="tall"></div>
+              <% end %>
             </div>
           <% end %>
 
@@ -100,4 +149,5 @@
 
         <% end %>
       </div>
+      <%= button_to "Fill out today's feedback form!", '/what_to_brings/new', :class => "dff-button", :method => :get %>
     </div>
