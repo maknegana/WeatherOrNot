@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   put 'create' => 'what_to_brings#create'
   post '/what_to_brings', to: 'what_to_brings#create'
 
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

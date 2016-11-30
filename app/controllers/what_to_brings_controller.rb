@@ -75,7 +75,7 @@ class WhatToBringsController < ApplicationController
     # update this what to bring depending on the feedback form submitted on a day
     # where the weather is the type of weather corresponding to this wtb.
 
-  end	
+  end
 
   def new
 
@@ -94,7 +94,7 @@ class WhatToBringsController < ApplicationController
 
   end
 
-  def create 
+  def create
     @tops=["shirt", "sweater", "jacket", "rainjacket", "parka"]
     @bottoms=["shorts", "jeans", "jeans", "jeans", "jeans"]
     @shoes=["sandals", "sneakers", "sneakers", "rainboots", "snowboots"]
@@ -136,12 +136,12 @@ class WhatToBringsController < ApplicationController
       inc = 1
     end
     if @wtbNew.felt == 'too hot'
-      inc = -1 
+      inc = -1
     end
-    
+
     x = change[rand(0..6)]
-    @wtbNew[x] = (@wtbNew[x] + inc) % 5 
-  
+    @wtbNew[x] = (@wtbNew[x] + inc) % 5
+
 
     @rel_wtb.destroy()
     @wtbNew.save

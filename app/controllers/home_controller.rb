@@ -21,7 +21,7 @@ class HomeController < ApplicationController
     @bottoms=["shorts", "jeans", "jeans", "jeans", "jeans"]
     @shoes=["sandals", "sneakers", "sneakers", "rainboots", "snowboots"]
     @hands=["", "", "", "", "gloves"]
-    @heads=["baseball cap", "beanie", "beanie", "beanie", "beanie"]
+    @heads=["hat", "light beanie", "light beanie", "beanie", "fleece hat"]
     @eyes=["sunglasses", "", "", "", ""]
     @ears=["", "", "", "", "earmuffs"]
     @necks=["", "", "scarf", "scarf", "scarf"]
