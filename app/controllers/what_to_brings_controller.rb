@@ -91,29 +91,58 @@ class WhatToBringsController < ApplicationController
       end
     end
 
-    @wtbNew = WhatToBring.new()
-    @wtblist = []
-    @rel_wtb.attributes.keys do |column|
-      @wtblist << column.to_s
-      @wtbNew.column = @rel_wtb.column
-    end
+    @wtbNew = WhatToBring.new(:weather=> @weather_category)
+    # @wtblist = []
+    # @rel_wtb.attributes.keys do |column|
+    #   @wtblist << column.to_s
+    #   @wtbNew.column = @rel_wtb.column
+    # end
+
+    @tops=["shirt", "sweater", "jacket", "rainjacket", "parka"]
+    @bottoms=["shorts", "jeans"]
+    @shoes=["sandals", "sneakers", "rainboots", "snowboots"]
+    @hands=["gloves", ""]
+    @heads=["baseball cap", "beanie"]
+    @eyes=["sunglasses", ""]
+    @ears=["earmuffs", ""]
+    @necks=["scarf", ""]
+    @brings=["umbrella", ""]
   end
 
   def create 
-    @rel_wtb.destroy()
-    checkedList = params[:checkedList]
+    @wtbNew = WhatToBring.new(:weather=> @weather_category,
+                              :top => params[:top],
+                              :bottom => params[:bottom],
+                              :shoes => params[:shoes],
+                              :hands => params[:hands],
+                              :head => params[:head],
+                              :eyes => params[:eyes],
+                              :ears => params[:ears],
+                              :neck => params[:neck],
+                              :bring => params[:bring],
+                              :felt => params[:felt])
+
+    change = ["top","bottom","shoes","hands","head", "ears","necks"]
     inc = 0
-    if params[:felt] == 'too cold'
-      inc == 1
+    if @wtbNew.felt == 'too cold'
+      inc = 1
     end
-    if params[:felt] == 'too hot'
-      inc == -1 
+    if @wtbNew.felt == 'too hot'
+      inc = -1 
     end
-    if checkedList[rand(1..(checkedList.size-1))] != ""
-      put @wtbNew.(checkedList[rand(1..(checkedList.size-1))]).to_sym
-    end
+    puts "====================================="
+    puts @wtbNew["top"] 
+    puts params[:top].nil?
+
+    puts "====================================="
+
+      if (@wtbNew[change[rand(0..6)].to_sym] != "")
+        puts @wtbNew.(change[rand(0..6)].to_sym) 
+      end 
+
+    #@rel_wtb.destroy()
     @wtbNew.save
-    redirect '/'
+    redirect_to '/'
   end
 
 end
