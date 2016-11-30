@@ -78,18 +78,6 @@ class WhatToBringsController < ApplicationController
   end	
 
   def new
-    offset = rand(DayWeather.count)
-    @cdw = DayWeather.offset(offset).first
-
-    @weather_category = @cdw.sky
-
-    if current_user
-      current_user.what_to_brings.each do |w|
-        if w.weather.eql? @weather_category
-          @rel_wtb = w
-        end
-      end
-    end
 
     @wtbNew = WhatToBring.new(:weather=> @weather_category)
     # @wtblist = []
@@ -107,20 +95,51 @@ class WhatToBringsController < ApplicationController
     @ears=["earmuffs", ""]
     @necks=["scarf", ""]
     @brings=["umbrella", ""]
+
+
   end
 
   def create 
+    @tops=["shirt", "sweater", "jacket", "rainjacket", "parka"]
+    @bottoms=["shorts", "jeans", "jeans", "jeans", "jeans"]
+    @shoes=["sandals", "sneakers", "sneakers", "rainboots", "snowboots"]
+    @hands=["", "", "", "", "gloves"]
+    @heads=["baseball cap", "beanie", "beanie", "beanie", "beanie"]
+    @eyes=["sunglasses", "", "", "", ""]
+    @ears=["", "", "", "", "earmuffs"]
+    @necks=["", "", "scarf", "scarf", "scarf"]
+    @brings=["", "", "umbrella", "umbrella", ""]
+
+    offset = rand(DayWeather.count)
+    @cdw = DayWeather.offset(offset).first
+
+    @weather_category = @cdw.sky
+
+    if current_user
+      current_user.what_to_brings.each do |w|
+        if w.weather.eql? @weather_category
+          @rel_wtb = w
+        end
+      end
+    end
+
+    puts "========== ALL =============="
+    puts WhatToBring.all
+    puts "=========== CURRENT ============="
+    puts @rel_wtb
+    puts "========================"
+
     @wtbNew = WhatToBring.new(:weather=> @weather_category,
-                              :top => params[:top],
-                              :bottom => params[:bottom],
-                              :shoes => params[:shoes],
-                              :hands => params[:hands],
-                              :head => params[:head],
-                              :eyes => params[:eyes],
-                              :ears => params[:ears],
-                              :neck => params[:neck],
-                              :bring => params[:bring],
-                              :felt => params[:felt])
+                              :top => @tops.index(params[:what_to_bring][:top]),
+                              :bottom => @bottoms.index(params[:what_to_bring][:bottom]),
+                              :shoes => @shoes.index(params[:what_to_bring][:shoes]),
+                              :hands => @hands.index(params[:what_to_bring][:hands]),
+                              :head => @heads.index(params[:what_to_bring][:head]),
+                              :eyes => @eyes.index(params[:what_to_bring][:eyes]),
+                              :ears => @ears.index(params[:what_to_bring][:ears]),
+                              :neck => @necks.index(params[:what_to_bring][:neck]),
+                              :bring => @brings.index(params[:what_to_bring][:bring]),
+                              :felt => params[:what_to_bring][:felt])
 
     change = ["top","bottom","shoes","hands","head", "ears","necks"]
     inc = 0
@@ -130,18 +149,14 @@ class WhatToBringsController < ApplicationController
     if @wtbNew.felt == 'too hot'
       inc = -1 
     end
-    puts "====================================="
-    puts @wtbNew["top"] 
-    puts params[:top].nil?
 
-    puts "====================================="
-
-      if (@wtbNew[change[rand(0..6)].to_sym] != "")
-        puts @wtbNew.(change[rand(0..6)].to_sym) 
-      end 
-
-    #@rel_wtb.destroy()
+    @wtbNew[change[rand(0..6)]] += 1
+    @rel_wtb.destroy()
     @wtbNew.save
+
+    puts "========== ALL AFTER DELETE AND SAVE=============="
+    puts WhatToBring.all
+
     redirect_to '/'
   end
 
