@@ -1,0 +1,6 @@
+<%= simple_form_for @wtbNew do |f| %>
+  <%= f.input :felt, label: 'How did you feel today?', collection: ['too cold', 'just right', 'too hot'], as: :radio_buttons%>
+  <%= f.input :checkedList, label: 'What did you wear?', collection: @wtblist, as: :check_boxes%>
+  <%= f.button :submit %>
+
+<% end %>

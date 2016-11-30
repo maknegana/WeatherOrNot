@@ -76,4 +76,44 @@ class WhatToBringsController < ApplicationController
     # where the weather is the type of weather corresponding to this wtb.
 
   end	
+
+  def new
+    offset = rand(DayWeather.count)
+    @cdw = DayWeather.offset(offset).first
+
+    @weather_category = @cdw.sky
+
+    if current_user
+      current_user.what_to_brings.each do |w|
+        if w.weather.eql? @weather_category
+          @rel_wtb = w
+        end
+      end
+    end
+
+    @wtbNew = WhatToBring.new()
+    @wtblist = []
+    @rel_wtb.attributes.keys do |column|
+      @wtblist << column.to_s
+      @wtbNew.column = @rel_wtb.column
+    end
+  end
+
+  def create 
+    @rel_wtb.destroy()
+    checkedList = params[:checkedList]
+    inc = 0
+    if params[:felt] == 'too cold'
+      inc == 1
+    end
+    if params[:felt] == 'too hot'
+      inc == -1 
+    end
+    if checkedList[rand(1..(checkedList.size-1))] != ""
+      put @wtbNew.(checkedList[rand(1..(checkedList.size-1))]).to_sym
+    end
+    @wtbNew.save
+    redirect '/'
+  end
+
 end

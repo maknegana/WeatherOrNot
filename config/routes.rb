@@ -6,6 +6,9 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'home#index'
+  get '/what_to_brings/new', to: 'what_to_brings#new'
+  put 'create' => 'what_to_brings#create'
+  post '/what_to_brings', to: 'what_to_brings#create'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
