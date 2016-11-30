@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161130005649) do
+ActiveRecord::Schema.define(version: 20161130050745) do
 
   create_table "day_weathers", force: :cascade do |t|
     t.integer  "date"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20161130005649) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
+    t.string   "curr_day"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
@@ -79,7 +80,7 @@ ActiveRecord::Schema.define(version: 20161130005649) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.integer  "bring"
-    t.integer  "felt"
+    t.string   "felt"
   end
 
   add_index "what_to_brings", ["user_id"], name: "index_what_to_brings_on_user_id"

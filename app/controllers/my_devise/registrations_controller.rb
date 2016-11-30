@@ -13,6 +13,7 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
 	                           :neck => 0,
 	                           :top => 0,
 	                           :bring => 0,
+                             :user_id => current_user.id
 	                           ) 
 	    current_user.what_to_brings << @sunnyWTB
 	    
@@ -27,6 +28,7 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
                               :neck => 1,
                               :top => 1,
                               :bring => 1,
+                              :user_id  => current_user.id
                               )
       current_user.what_to_brings << @cloudyWTB
       
@@ -41,6 +43,7 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
                               :neck => 2,
                               :top => 2,
                               :bring => 2,
+                              :user_id => current_user.id
                               )   
       current_user.what_to_brings << @drizzleWTB
       
@@ -55,6 +58,7 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
                               :neck => 3,
                               :top => 3,
                               :bring => 3,
+                              :user_id => current_user.id
                               )
       current_user.what_to_brings << @heavyRainWTB
       @snowWTB = WhatToBring.create(:weather => "snow",
@@ -68,6 +72,7 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
                               :neck => 4,
                               :top => 4,
                               :bring => 4,
+                              :user_id => current_user.id
                               )
       current_user.what_to_brings << @snowWTB 
     end                                                                                                                      

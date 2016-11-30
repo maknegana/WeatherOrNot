@@ -1,7 +1,7 @@
 # Rails Project Writeup
 * Title: WeatherOrNot
 * Team Members: Anne Lin, Adriana Babakanian, Michelle Han
-* Demo Link: railsdecal.com
+* Demo Link: https://www.youtube.com/watch?v=eogb8g_uudo
 * Idea: An application where administrators can create and post new lectures and other users (being students) can comment on the lectures and post questions for admins to answer.
 
 ## Models and Description:

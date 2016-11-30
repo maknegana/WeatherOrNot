@@ -81,6 +81,7 @@ class WhatToBringsController < ApplicationController
 
     @wtbNew = WhatToBring.new(:weather=> @weather_category)
 
+
     @tops=["shirt", "sweater", "jacket", "rainjacket", "parka"]
     @bottoms=["shorts", "jeans"]
     @shoes=["sandals", "sneakers", "rainboots", "snowboots"]
@@ -128,7 +129,8 @@ class WhatToBringsController < ApplicationController
                               :ears => @ears.index(params[:what_to_bring][:ears]),
                               :neck => @necks.index(params[:what_to_bring][:neck]),
                               :bring => @brings.index(params[:what_to_bring][:bring]),
-                              :felt => params[:what_to_bring][:felt])
+                              :felt => params[:what_to_bring][:felt],
+                              :user_id => current_user.id)
 
     change = ["top","bottom","shoes","hands","head", "ears","necks"]
     inc = 0
@@ -140,9 +142,35 @@ class WhatToBringsController < ApplicationController
     end
     
     x = change[rand(0..6)]
-    @wtbNew[x] = (@wtbNew[x] + inc) % 5 
-  
 
+    if "top".eql? x
+    	# puts @wtbNew[x]
+    	@wtbNew.top = (@wtbNew[x] + inc) % 5 
+    elsif "bottom".eql? x
+    	# puts @wtbNew[x]
+    	@wtbNew.bottom = (@wtbNew[x] + inc) % 5 
+    elsif "shoes".eql? x
+    	# puts @wtbNew[x]
+    	@wtbNew.shoes = (@wtbNew[x] + inc) % 5 
+    elsif "hands".eql? x
+    	# puts @wtbNew[x]
+    	@wtbNew.hands = (@wtbNew[x] + inc) % 5 
+    elsif "head".eql? x
+    	# puts @wtbNew[x]
+    	@wtbNew.head = (@wtbNew[x] + inc) % 5 	
+    elsif "eyes".eql? x
+    	# puts @wtbNew[x]
+    	@wtbNew.eyes = (@wtbNew[x] + inc) % 5 
+    elsif "ears".eql? x
+    	# puts @wtbNew[x]
+    	@wtbNew.ears = (@wtbNew[x] + inc) % 5
+    elsif "neck".eql? x
+    	# puts @wtbNew[x]
+    	@wtbNew.neck = (@wtbNew[x] + inc) % 5
+    end  
+
+
+    puts @rel_wtb.nil?
     @rel_wtb.destroy()
     @wtbNew.save
 
