@@ -76,4 +76,77 @@ class WhatToBringsController < ApplicationController
     # where the weather is the type of weather corresponding to this wtb.
 
   end	
+
+  def new
+
+    @wtbNew = WhatToBring.new(:weather=> @weather_category)
+
+    @tops=["shirt", "sweater", "jacket", "rainjacket", "parka"]
+    @bottoms=["shorts", "jeans"]
+    @shoes=["sandals", "sneakers", "rainboots", "snowboots"]
+    @hands=["gloves", ""]
+    @heads=["baseball cap", "beanie"]
+    @eyes=["sunglasses", ""]
+    @ears=["earmuffs", ""]
+    @necks=["scarf", ""]
+    @brings=["umbrella", ""]
+
+
+  end
+
+  def create 
+    @tops=["shirt", "sweater", "jacket", "rainjacket", "parka"]
+    @bottoms=["shorts", "jeans", "jeans", "jeans", "jeans"]
+    @shoes=["sandals", "sneakers", "sneakers", "rainboots", "snowboots"]
+    @hands=["", "", "", "", "gloves"]
+    @heads=["baseball cap", "beanie", "beanie", "beanie", "beanie"]
+    @eyes=["sunglasses", "", "", "", ""]
+    @ears=["", "", "", "", "earmuffs"]
+    @necks=["", "", "scarf", "scarf", "scarf"]
+    @brings=["", "", "umbrella", "umbrella", ""]
+
+    offset = rand(DayWeather.count)
+    @cdw = DayWeather.offset(offset).first
+
+    @weather_category = @cdw.sky
+
+    if current_user
+      current_user.what_to_brings.each do |w|
+        if w.weather.eql? @weather_category
+          @rel_wtb = w
+        end
+      end
+    end
+
+    @wtbNew = WhatToBring.new(:weather=> @weather_category,
+                              :top => @tops.index(params[:what_to_bring][:top]),
+                              :bottom => @bottoms.index(params[:what_to_bring][:bottom]),
+                              :shoes => @shoes.index(params[:what_to_bring][:shoes]),
+                              :hands => @hands.index(params[:what_to_bring][:hands]),
+                              :head => @heads.index(params[:what_to_bring][:head]),
+                              :eyes => @eyes.index(params[:what_to_bring][:eyes]),
+                              :ears => @ears.index(params[:what_to_bring][:ears]),
+                              :neck => @necks.index(params[:what_to_bring][:neck]),
+                              :bring => @brings.index(params[:what_to_bring][:bring]),
+                              :felt => params[:what_to_bring][:felt])
+
+    change = ["top","bottom","shoes","hands","head", "ears","necks"]
+    inc = 0
+    if @wtbNew.felt == 'too cold'
+      inc = 1
+    end
+    if @wtbNew.felt == 'too hot'
+      inc = -1 
+    end
+    
+    x = change[rand(0..6)]
+    @wtbNew[x] = (@wtbNew[x] + inc) % 5 
+  
+
+    @rel_wtb.destroy()
+    @wtbNew.save
+
+    redirect_to '/'
+  end
+
 end

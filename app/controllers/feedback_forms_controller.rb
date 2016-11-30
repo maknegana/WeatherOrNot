@@ -7,14 +7,33 @@ class FeedbackFormsController < ApplicationController
                               :feel => 0,
                               :top => @wtb.top,
                               :bottom => @wtb.bottom,
-                              :shoes =>,
-                              :hands =>,
-                              :head =>,
-                              :eyes =>,
-                              :ears => ,
+                              :shoes => @wtb.shoes,
+                              :hands => @wtb.hands,
+                              :head => @wtb.head,
+                              :eyes => @wtb.eyes,
+                              :ears => @wtb.ears,
                               )
-  end	
+  end
+
+  def create
+    # create a new feedback form for a given day and a given user
+    # fill in this info given the input from the simple form
+    # change input from simple form into the corresponding list
+
+    #generate a random number within the range
+    checkedList = params[:checkedList]
+    changing = checkedList[rand(0..checkedList.size)].to_sym
+    @ff.(changing) += param[:felt]
+    @ff.save
+    session[:changed] = changing
+    update
+    redirect_to '/'
+  end
+
   def update
+    puts " ======== test ========"
     #update this form's corresponding what to bring
-  end  
+    @wtb.session[:changed] = @ff.session[:changed]
+    @wtb.save
+  end
 end

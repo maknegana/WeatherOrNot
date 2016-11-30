@@ -1,0 +1,15 @@
+<%= simple_form_for @wtbNew do |f| %>
+  <%= f.input :felt, label: 'How did you feel today?', collection: ['too cold', 'just right', 'too hot'], as: :radio_buttons%>
+  What Did You Wear Today? 
+  <%= f.input :top, label: 'Top', collection: @tops, required: true%>
+  <%= f.input :bottom, label: 'Bottom', collection: @bottoms, required: true %>
+  <%= f.input :shoes, label: 'Shoes', collection: @shoes, required: true %>
+  <%= f.input :hands, label: 'Hands', collection: @hands, required: true %>
+  <%= f.input :eyes, label: 'Eyes', collection: @eyes, required: true %>
+  <%= f.input :ears, label: 'Ears', collection: @ears, required: true %>
+  <%= f.input :neck, label: 'Neck', collection: @necks, required: true %>
+  <%= f.input :bring, label: 'Umbrella', collection: @brings, required: true%>
+
+  <%= f.button :submit %>
+
+<% end %>
