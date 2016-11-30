@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 20161130005649) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.integer  "bring"
-    t.integer  "felt"
+    t.string   "felt"
   end
 
   add_index "what_to_brings", ["user_id"], name: "index_what_to_brings_on_user_id"

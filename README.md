@@ -1,7 +1,7 @@
 # Rails Project Writeup
 * Title: WeatherOrNot
 * Team Members: Anne Lin, Adriana Babakanian, Michelle Han
-* Demo Link: railsdecal.com
+* Demo Link: https://www.youtube.com/watch?v=eogb8g_uudo
 * Idea: An application where users receive personalized suggestions on what they should wear based on the current weather condition.
 
 ## Models and Description:
