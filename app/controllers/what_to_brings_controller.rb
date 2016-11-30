@@ -80,11 +80,6 @@ class WhatToBringsController < ApplicationController
   def new
 
     @wtbNew = WhatToBring.new(:weather=> @weather_category)
-    # @wtblist = []
-    # @rel_wtb.attributes.keys do |column|
-    #   @wtblist << column.to_s
-    #   @wtbNew.column = @rel_wtb.column
-    # end
 
     @tops=["shirt", "sweater", "jacket", "rainjacket", "parka"]
     @bottoms=["shorts", "jeans"]
@@ -123,12 +118,6 @@ class WhatToBringsController < ApplicationController
       end
     end
 
-    puts "========== ALL =============="
-    puts WhatToBring.all
-    puts "=========== CURRENT ============="
-    puts @rel_wtb
-    puts "========================"
-
     @wtbNew = WhatToBring.new(:weather=> @weather_category,
                               :top => @tops.index(params[:what_to_bring][:top]),
                               :bottom => @bottoms.index(params[:what_to_bring][:bottom]),
@@ -149,13 +138,13 @@ class WhatToBringsController < ApplicationController
     if @wtbNew.felt == 'too hot'
       inc = -1 
     end
+    
+    x = change[rand(0..6)]
+    @wtbNew[x] = (@wtbNew[x] + inc) % 5 
+  
 
-    @wtbNew[change[rand(0..6)]] += 1
     @rel_wtb.destroy()
     @wtbNew.save
-
-    puts "========== ALL AFTER DELETE AND SAVE=============="
-    puts WhatToBring.all
 
     redirect_to '/'
   end
