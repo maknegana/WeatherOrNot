@@ -1,15 +1,19 @@
 <%= simple_form_for @wtbNew do |f| %>
-  <%= f.input :felt, label: 'How did you feel today?', collection: ['too cold', 'just right', 'too hot'], as: :radio_buttons%>
-  What Did You Wear Today? 
-  <%= f.input :top, label: 'Top', collection: @tops, required: true%>
-  <%= f.input :bottom, label: 'Bottom', collection: @bottoms, required: true %>
-  <%= f.input :shoes, label: 'Shoes', collection: @shoes, required: true %>
-  <%= f.input :hands, label: 'Hands', collection: @hands, required: true %>
-  <%= f.input :eyes, label: 'Eyes', collection: @eyes, required: true %>
-  <%= f.input :ears, label: 'Ears', collection: @ears, required: true %>
-  <%= f.input :neck, label: 'Neck', collection: @necks, required: true %>
-  <%= f.input :bring, label: 'Umbrella', collection: @brings, required: true%>
+  <h4 style="width:400px; font-family:BigJohn;margin: 0 auto; font-size:18px; text-align:center; margin-top:20px;margin-bottom:20px;color:#3F4052;"> How did you feel today? </h4>
+  <div class="fbf-wrapper">
+    <%= f.input :felt, collection: ['too cold', 'just right', 'too hot'], as: :radio_buttons%>
+  </div>
+    <h4 style="width:400px; font-family:BigJohn;margin: 0 auto; font-size:18px; text-align:center; margin-top:20px;margin-bottom:20px;color:#3F4052;"> What Did You Wear Today? </h4>
+  <div class="fbf-wrapper">
+    <%= f.input :top, :input_html => { :class => 'fbf-inputs' }, label: 'Top', collection: @tops, required: true%>
+    <%= f.input :bottom, :input_html => { :class => 'fbf-inputs' }, label: 'Bottom', collection: @bottoms, required: true %>
+    <%= f.input :shoes, :input_html => { :class => 'fbf-inputs' }, label: 'Shoes', collection: @shoes, required: true %>
+    <%= f.input :hands, :input_html => { :class => 'fbf-inputs' }, label: 'Hands', collection: @hands, required: true %>
+    <%= f.input :eyes, :input_html => { :class => 'fbf-inputs' }, label: 'Eyes', collection: @eyes, required: true %>
+    <%= f.input :ears, :input_html => { :class => 'fbf-inputs' }, label: 'Ears', collection: @ears, required: true %>
+    <%= f.input :neck, :input_html => { :class => 'fbf-inputs' }, label: 'Neck', collection: @necks, required: true %>
+    <%= f.input :bring, :input_html => { :class => 'fbf-inputs' }, label: 'Umbrella', collection: @brings, required: true%>
 
-  <%= f.button :submit %>
-
+    <%= f.button :submit, :input_html => { :class => 'fbf-button'} %>
+  </div>
 <% end %>

@@ -177,7 +177,6 @@ ul li ul li:hover {background: #666;}
 .form-wrapper {
   width: 100%;
   height: auto;
-  background-color: green;
 
 }
 
@@ -191,7 +190,7 @@ ul li ul li:hover {background: #666;}
 .form-actions {
   width: 100px;
   margin: 0 auto;
-  background-color: red;
+
   margin-top: 20px;
 }
 
@@ -223,7 +222,7 @@ ul li ul li:hover {background: #666;}
 
 .f-button {
   width: 100px;
-  background-color: red;
+  /*background-color: red;*/
 }
 
 .rem {
@@ -286,4 +285,21 @@ a:hover {
 
 .dff-button:hover {
   background-color: white;
+}
+
+.fbf-inputs {
+  width: 200px;
+  vertical-align: center;
+  text-align: center;
+}
+
+.fbf-wrapper {
+  width: 200px;
+  margin: 0 auto;
+  height: auto;
+  /*background-color: green;*/
+}
+
+.fbf-button {
+  border-style: none;
 }
