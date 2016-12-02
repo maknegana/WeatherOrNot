@@ -13,6 +13,9 @@ SimpleForm.setup do |config|
     # You can make any of these extensions optional by
     # renaming `b.use` to `b.optional`.
 
+    #added this line to try to enable placeholders
+    b.use :placeholder
+
     # Determines whether to use HTML5 (:email, :url, ...)
     # and required attributes
     b.use :html5
@@ -40,7 +43,9 @@ SimpleForm.setup do |config|
     b.optional :readonly
 
     ## Inputs
-    b.use :label_input
+    # b.use :label_input
+    #commented out the above line and added this one below:
+    b.use :input
     b.use :hint,  wrap_with: { tag: :span, class: :hint }
     b.use :error, wrap_with: { tag: :span, class: :error }
 

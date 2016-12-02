@@ -8,7 +8,7 @@
 
   <div id="weather"></div>
 
-    <div class="stats">
+    <div class="stats" id="<%= 'heavyrain' if @cdw.sky.eql? 'heavy rain' %>">
       <div class="weather_icon">
       </div>
       <div class="skies"> <p style="font-family:bigJohn;font-size:21px">
@@ -21,11 +21,11 @@
 
       <div id="hidden">
           <p> Chance of Rain </p>
-          <p> <%= @cdw.precipitation %> % </p>
+          <p class="offset"> <%= @cdw.precipitation %> % </p>
           <p> Wind Speed </p>
-          <p> <%= @cdw.wind %> mph</p>
+          <p class="offset"> <%= @cdw.wind %> mph</p>
           <p> Humidity </p>
-          <p> <%= @cdw.humidity %> % </p>
+          <p class="offset"> <%= @cdw.humidity %> % </p>
       </div>
       </div>
     </div>

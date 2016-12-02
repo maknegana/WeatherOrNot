@@ -3,7 +3,7 @@
   <div id="wrap">
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
-
+      <h1 class="intro-title"> WeatherOrNot </h1>
       <div class="form-inputs">
         <%= f.input :email, :input_html => { :class => 'email' },
             required: true, autofocus: true %>
@@ -15,7 +15,7 @@
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit "Sign up", :class => "f-button"  %>
+        <%= f.submit "Sign up", :class => "f-button"  %>
       </div>
     <% end %>
   </div>
